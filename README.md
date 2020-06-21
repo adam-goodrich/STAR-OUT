@@ -1,0 +1,2 @@
+# STAR-OUT
+reads a .txt file and will censor words depending on settings you give it and create a new .txt file with the chosen words "stared out" and censored.
