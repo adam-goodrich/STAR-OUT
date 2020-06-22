@@ -1,15 +1,15 @@
 import tkinter as tk
 from tkinter import Tk
 from tkinter import *
-from tkinter.filedialog import askdirectory
+from tkinter.filedialog import asksaveasfile
 from tkinter import messagebox
 from tkinter import filedialog
 from itertools import product
-import ntpath
-import os
 
 txt = None
 file_name = None
+lst = []
+swears = ["tits", "cocksucker", "piss", "Fuck", "Shit", "Prick", "Bastard", "Bellend", "Cunt", "Balls", "Bitch", "Pussy"]
 
 root = Tk()
 root.title("STARED-OUT")
@@ -22,13 +22,12 @@ template.pack()
 def open_file():
 	global file_name
 	global txt
+	global lst
+	lst = []
 	file_path = filedialog.askopenfilename(filetypes =[('.txt FILES', '*.txt')], title="Select a .txt file to censor")
 	file_name = file_path
 	txt_file = open(file_name, "r")
 	txt = txt_file.read()
-
-swears = ["tits", "cocksucker", "piss", "Fuck", "Shit", "Prick", "Bastard", "Bellend", "Cunt", "Balls", "Bitch", "Pussy"]
-lst = []
 
 def add_to_lst(word):
 	global lst
@@ -41,12 +40,6 @@ def swear():
 	for i in swears:
 		lst.append(i)
 
-def choose_directory():
-    '''This changes the working directory to the directory of your choice'''
-    tk.messagebox.showinfo(title="CHOOSE DIRECTORY", message="Click 'OK' and choose the directory you want to save your new censored file in")
-    directory = askdirectory()
-    os.chdir(directory)
-
 def censor_string(txt, lst):
 	l = []
 	for i in lst:
@@ -58,10 +51,8 @@ def censor_string(txt, lst):
 	while index < len(l):
 		txt = txt.replace(l[index], (len(l[index]) * "*"))
 		index += 1
-	choose_directory()
-	new_file = open(f"censored_{ntpath.basename(file_name)}","w+")
+	new_file = asksaveasfile(defaultextension=".txt", title="SAVE FILE")
 	new_file.write(txt)
-
 
 def quit():
     try:
@@ -84,7 +75,6 @@ You can enter as many words as you want""")
 template.pack()
 textBox=Text(root, bg="#C4CFD0", fg="#F24D29", height=6, width=60, relief="sunken")
 textBox.pack()
-
 template = Label(root, bg="#1DACE8", justify=CENTER, text=""" """)
 template.pack()
 myButton = Button(root, bg="#1DACE8", fg="#F24D29", text="ADD CUSTOM WORD", command=lambda: add_to_lst(textBox.get("1.0","end-1c")), cursor="hand1", relief="groove")
@@ -100,6 +90,3 @@ myButton = Button(root, bg="#1DACE8", fg="#F24D29", text="QUIT", command=quit, c
 myButton.pack(expand=True, fill=BOTH)
 
 root.mainloop()
-
-
-
