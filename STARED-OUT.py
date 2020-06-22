@@ -9,7 +9,7 @@ from itertools import product
 txt = None
 file_name = None
 lst = []
-swears = ["tits", "cocksucker", "piss", "Fuck", "Shit", "Prick", "Bastard", "Bellend", "Cunt", "Balls", "Bitch", "Pussy"]
+swears = ["tits", "cock", "piss", "Fuck", "Shit", "Prick", "Bastard", "Cunt", "Balls", "Bitch", "Pussy", "Asshole", "faggot", "fag", "nigger"]
 
 root = Tk()
 root.title("STARED-OUT")
@@ -84,7 +84,7 @@ template = Label(root, bg="#1DACE8",  justify=CENTER, text="""\nPress the button
 template.pack()
 censor_string_button = Button(root, bg="#1DACE8", fg="#F24D29", text="STAR-OUT", command= lambda: censor_string(txt, lst), cursor="hand1").pack(expand=True, fill=BOTH)
 
-template = Label(root, bg="#1DACE8", justify=LEFT, text="\n\n\n\n\n\n")
+template = Label(root, bg="#1DACE8", justify=LEFT, text="\n\n\n\n")
 template.pack()
 myButton = Button(root, bg="#1DACE8", fg="#F24D29", text="QUIT", command=quit, cursor="hand1", borderwidth=2, relief="groove")
 myButton.pack(expand=True, fill=BOTH)
