@@ -9,7 +9,9 @@ from itertools import product
 txt = None
 file_name = None
 lst = []
-swears = ["tits", "cock", "piss", "Fuck", "Shit", "Prick", "Bastard", "Cunt", "Balls", "Bitch", "Pussy", "Asshole", "faggot", "fag", "nigger"]
+words_list = "anal,anus,arse,ass,ass fuck,ass hole,assfucker,asshole,assshole,bastard,bitch,black cock,bloody hell,boong,cock,cockfucker,cocksuck,cocksucker,coon,coonnass,crap,cum,cunt,cyberfuck,damn,darn,dick,dirty,douche,dummy,erect,erection,erotic,escort,fag,faggot,fuck,Fuck off,fuck you,fuckass,fuckhole,god damn,gook,hard core,hardcore,hore,mother fucker,motherfuck,motherfucker,nigger,penisfucker,piss,piss off,pussy,retard,sadist,shit,slut,son of a bitch,tits,whore"
+words_list = words_list.split(",")
+swears = words_list
 
 root = Tk()
 root.title("STARED-OUT")
